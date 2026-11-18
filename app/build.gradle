@@ -73,5 +73,9 @@ dependencies {
     // Lifecycle ViewModel Compose
     implementation lifecycle.viewModelCompose
     implementation lifecycle.runtimeCompose
+
+    // Unit testing
+    testImplementation testLibs.junit
+    testImplementation testLibs.coroutinesTest
     // Internet permission is needed for loading images from URLs
 }
