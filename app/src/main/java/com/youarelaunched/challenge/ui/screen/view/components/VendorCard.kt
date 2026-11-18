@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,14 +27,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
 import com.youarelaunched.challenge.R
+import com.youarelaunched.challenge.middle.domain.Category
 import com.youarelaunched.challenge.middle.domain.Vendor
 import com.youarelaunched.challenge.ui.theme.SaveActionColor
+import com.youarelaunched.challenge.ui.theme.VendorAppTheme
 import com.youarelaunched.challenge.ui.theme.VendorCardBackground
 import com.youarelaunched.challenge.ui.theme.VendorSubtitleColor
 import com.youarelaunched.challenge.ui.theme.VendorTitleColor
@@ -52,7 +55,6 @@ fun VendorCard(
         Column {
             // Cover Photo with overlays
             Box {
-                // Cover image
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
                         .data(vendor.coverPhotoUrl)
@@ -78,15 +80,12 @@ fun VendorCard(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
                         .padding(8.dp)
-                        .background(
-                            color = Color.White,
-                            shape = RoundedCornerShape(16.dp)
-                        )
+                        .background(color = Color.White, shape = RoundedCornerShape(16.dp))
                         .padding(horizontal = 10.dp, vertical = 5.dp)
                 ) {
                     Text(
                         text = vendor.areaServed,
-                        fontSize = 14.sp,
+                        style = MaterialTheme.typography.body2,
                         color = VendorTitleColor
                     )
                 }
@@ -96,10 +95,9 @@ fun VendorCard(
             Column(
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
             ) {
-                // Company Name
                 Text(
                     text = vendor.companyName,
-                    fontSize = 18.sp,
+                    style = MaterialTheme.typography.h6,
                     fontWeight = FontWeight.Bold,
                     color = VendorTitleColor,
                     maxLines = 1,
@@ -124,7 +122,6 @@ fun VendorCard(
                                         modifier = Modifier.weight(1f)
                                     )
                                 }
-                                // Keep a single trailing item at half width
                                 if (rowCategories.size == 1) {
                                     Spacer(modifier = Modifier.weight(1f))
                                 }
@@ -137,7 +134,7 @@ fun VendorCard(
                 if (vendor.tags.isNotEmpty()) {
                     Text(
                         text = vendor.tags.joinToString(separator = " ") { "• $it" },
-                        fontSize = 12.sp,
+                        style = MaterialTheme.typography.caption,
                         color = VendorSubtitleColor,
                         modifier = Modifier.padding(top = 8.dp),
                         maxLines = 2,
@@ -188,7 +185,6 @@ private fun CategoryItem(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Category SVG icon
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
                 .data(imageUrl)
@@ -201,11 +197,34 @@ private fun CategoryItem(
         Spacer(modifier = Modifier.width(4.dp))
         Text(
             text = name,
-            fontSize = 14.sp,
+            style = MaterialTheme.typography.body2,
             color = VendorTitleColor,
-            fontWeight = FontWeight.Normal,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun VendorCardPreview() {
+    VendorAppTheme {
+        VendorCard(
+            vendor = Vendor(
+                id = 1,
+                companyName = "Bill & Jane Grocery",
+                coverPhotoUrl = "",
+                areaServed = "Birmingham",
+                isFavorite = true,
+                categories = listOf(
+                    Category(1, "Green Grocers", ""),
+                    Category(2, "Cafe & Restaurant", ""),
+                    Category(3, "Homeware", ""),
+                    Category(4, "Health & Wellbeing", "")
+                ),
+                tags = listOf("Best vegetables in town", "Discounts for customers")
+            ),
+            modifier = Modifier.padding(16.dp)
         )
     }
 }

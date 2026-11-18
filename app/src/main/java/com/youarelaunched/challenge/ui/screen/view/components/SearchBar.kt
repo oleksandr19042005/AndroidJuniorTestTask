@@ -15,12 +15,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.youarelaunched.challenge.R
 import com.youarelaunched.challenge.ui.theme.SearchBarBackground
 import com.youarelaunched.challenge.ui.theme.SearchBarHintColor
+import com.youarelaunched.challenge.ui.theme.VendorAppTheme
 import com.youarelaunched.challenge.ui.theme.VendorTitleColor
 
 @Composable
@@ -32,14 +32,8 @@ fun SearchBar(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .shadow(
-                elevation = 4.dp,
-                shape = RoundedCornerShape(16.dp)
-            )
-            .background(
-                color = SearchBarBackground,
-                shape = RoundedCornerShape(16.dp)
-            )
+            .shadow(elevation = 4.dp, shape = RoundedCornerShape(16.dp))
+            .background(color = SearchBarBackground, shape = RoundedCornerShape(16.dp))
             .height(48.dp)
             .padding(horizontal = 16.dp),
         contentAlignment = Alignment.CenterStart
@@ -47,10 +41,8 @@ fun SearchBar(
         if (query.isEmpty()) {
             Text(
                 text = stringResource(R.string.search_hint),
-                style = TextStyle(
-                    color = SearchBarHintColor,
-                    fontSize = 16.sp
-                )
+                style = MaterialTheme.typography.body1,
+                color = SearchBarHintColor
             )
         }
 
@@ -58,12 +50,21 @@ fun SearchBar(
             value = query,
             onValueChange = onQueryChanged,
             singleLine = true,
-            textStyle = TextStyle(
-                color = VendorTitleColor,
-                fontSize = 16.sp
-            ),
+            textStyle = MaterialTheme.typography.body1.copy(color = VendorTitleColor),
             cursorBrush = SolidColor(MaterialTheme.colors.primary),
             modifier = Modifier.fillMaxWidth()
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SearchBarPreview() {
+    VendorAppTheme {
+        SearchBar(
+            query = "",
+            onQueryChanged = {},
+            modifier = Modifier.padding(16.dp)
         )
     }
 }
