@@ -19,7 +19,7 @@
           "name": "Florists",
           "image": {
             "id": 1348,
-            "media_url": "https://media-staging.chatsumer.app/48/1830f855-6315-4d3c-a5dc-088ea826aef2.svg",
+            "media_url": "https://api.iconify.design/mdi/flower-outline.svg?color=%237e7e9a",
             "media_type": "image"
           }
         },
@@ -28,7 +28,7 @@
           "name": "Fashion Accessories",
           "image": {
             "id": 1366,
-            "media_url": "https://media-staging.chatsumer.app/48/1830f855-6315-4d3c-a5dc-088ea826aef2.svg",
+            "media_url": "https://api.iconify.design/mdi/hanger.svg?color=%237e7e9a",
             "media_type": "image"
           }
         },
@@ -37,7 +37,7 @@
           "name": "Garden",
           "image": {
             "id": 1348,
-            "media_url": "https://media-staging.chatsumer.app/48/1830f855-6315-4d3c-a5dc-088ea826aef2.svg",
+            "media_url": "https://api.iconify.design/mdi/sprout-outline.svg?color=%237e7e9a",
             "media_type": "image"
           }
         },
@@ -46,7 +46,7 @@
           "name": "Home",
           "image": {
             "id": 1366,
-            "media_url": "https://media-staging.chatsumer.app/48/1830f855-6315-4d3c-a5dc-088ea826aef2.svg",
+            "media_url": "https://api.iconify.design/mdi/home-outline.svg?color=%237e7e9a",
             "media_type": "image"
           }
         }
@@ -103,7 +103,7 @@
           "name": "Cafe & Restaurant",
           "image": {
             "id": 1344,
-            "media_url": "https://media-staging.chatsumer.app/48/1830f855-6315-4d3c-a5dc-088ea826aef2.svg",
+            "media_url": "https://api.iconify.design/mdi/silverware-fork-knife.svg?color=%237e7e9a",
             "media_type": "image"
           }
         }
@@ -135,7 +135,7 @@
           "name": "Pets",
           "image": {
             "id": 1345,
-            "media_url": "https://media-staging.chatsumer.app/48/1830f855-6315-4d3c-a5dc-088ea826aef2.svg",
+            "media_url": "https://api.iconify.design/mdi/paw-outline.svg?color=%237e7e9a",
             "media_type": "image"
           }
         },
@@ -144,7 +144,7 @@
           "name": "Home",
           "image": {
             "id": 1345,
-            "media_url": "https://media-staging.chatsumer.app/48/1830f855-6315-4d3c-a5dc-088ea826aef2.svg",
+            "media_url": "https://api.iconify.design/mdi/home-outline.svg?color=%237e7e9a",
             "media_type": "image"
           }
         }
