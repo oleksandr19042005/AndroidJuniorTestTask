@@ -43,6 +43,13 @@ buildscript {
                 viewModelCompose: "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion",
                 runtimeCompose  : "androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion"
         ]
+
+        //Unit testing
+        coroutinesVersion = "1.6.4"
+        testLibs = [
+                junit         : "junit:junit:4.13.2",
+                coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+        ]
     }
 }
 
