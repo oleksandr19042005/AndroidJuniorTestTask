@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.youarelaunched.challenge.middle.domain.Vendor
 import com.youarelaunched.challenge.middle.repository.VendorRepository
+import com.youarelaunched.challenge.ui.screen.MainScreenDefaults
 import com.youarelaunched.challenge.ui.screen.state.VendorsScreenUiState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -31,12 +32,11 @@ class VendorsVM(
     }
 
     /**
-     * The screen state is derived from two sources: the loaded data and the
-     * (debounced) search query. No new coroutine is launched per keystroke.
+     * Screen state derived from the loaded data and the debounced search query.
      */
     val uiState: StateFlow<VendorsScreenUiState> = combine(
         loadResult,
-        query.debounce { typed -> if (typed.isEmpty()) 0L else SEARCH_DEBOUNCE_MS }
+        query.debounce { typed -> if (typed.isEmpty()) 0L else MainScreenDefaults.SEARCH_DEBOUNCE_MS }
     ) { result, searchText ->
         when (result) {
             LoadResult.Loading -> VendorsScreenUiState.Loading
@@ -52,7 +52,7 @@ class VendorsVM(
         }
     }.stateIn(
         scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS),
+        started = SharingStarted.WhileSubscribed(MainScreenDefaults.STOP_TIMEOUT_MS),
         initialValue = VendorsScreenUiState.Loading
     )
 
@@ -79,10 +79,5 @@ class VendorsVM(
         object Loading : LoadResult
         data class Success(val vendors: List<Vendor>) : LoadResult
         object Error : LoadResult
-    }
-
-    private companion object {
-        const val SEARCH_DEBOUNCE_MS = 300L
-        const val STOP_TIMEOUT_MS = 5_000L
     }
 }
