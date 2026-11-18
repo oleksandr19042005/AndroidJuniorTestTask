@@ -7,8 +7,6 @@ import com.youarelaunched.challenge.network.api.ApiVendors
 class VendorRepository(
     private val apiVendors: ApiVendors
 ) {
-
-    // Cache the parsed list so it is read and mapped only once.
     private var cachedVendors: List<Vendor>? = null
 
     suspend fun getVendors(): List<Vendor> {
@@ -16,11 +14,6 @@ class VendorRepository(
             .map { it.toDomain() }
             .also { cachedVendors = it }
     }
-
-    /**
-     * Pure, synchronous filter over an already-loaded list — kept here so the
-     * search rule lives in one place and is trivial to unit-test.
-     */
     fun filter(vendors: List<Vendor>, query: String): List<Vendor> {
         if (query.isBlank()) return vendors
 

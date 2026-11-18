@@ -143,8 +143,6 @@ private fun Message(text: String) {
     )
 }
 
-/* ----------------------------- Previews ----------------------------- */
-
 private val previewVendor = Vendor(
     id = 1,
     companyName = "Bill & Jane Grocery",

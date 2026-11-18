@@ -30,21 +30,18 @@ buildscript {
                 jsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion"
         ]
 
-        //Coil for image loading (supports SVG)
         coilVersion = "2.2.2"
         coil = [
                 compose: "io.coil-kt:coil-compose:$coilVersion",
                 svg    : "io.coil-kt:coil-svg:$coilVersion"
         ]
 
-        //Lifecycle ViewModel Compose
         lifecycleVersion = "2.6.1"
         lifecycle = [
                 viewModelCompose: "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion",
                 runtimeCompose  : "androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion"
         ]
 
-        //Unit testing
         coroutinesVersion = "1.6.4"
         testLibs = [
                 junit         : "junit:junit:4.13.2",

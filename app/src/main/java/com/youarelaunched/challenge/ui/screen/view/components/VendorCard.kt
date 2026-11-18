@@ -53,7 +53,6 @@ fun VendorCard(
         elevation = 2.dp
     ) {
         Column {
-            // Cover Photo with overlays
             Box {
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
@@ -67,7 +66,6 @@ fun VendorCard(
                         .height(180.dp)
                 )
 
-                // Save / bookmark badge (top-right) — reflects the favorite state
                 SaveBadge(
                     isSaved = vendor.isFavorite,
                     modifier = Modifier
@@ -75,7 +73,6 @@ fun VendorCard(
                         .padding(10.dp)
                 )
 
-                // Area served label (bottom-left of image)
                 Box(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
@@ -91,7 +88,6 @@ fun VendorCard(
                 }
             }
 
-            // Content below image
             Column(
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
             ) {
@@ -104,7 +100,6 @@ fun VendorCard(
                     overflow = TextOverflow.Ellipsis
                 )
 
-                // Categories grid — two per row, matching the design
                 if (vendor.categories.isNotEmpty()) {
                     Column(
                         modifier = Modifier.padding(top = 8.dp),
@@ -130,7 +125,6 @@ fun VendorCard(
                     }
                 }
 
-                // Tags row — allowed to wrap, like the design
                 if (vendor.tags.isNotEmpty()) {
                     Text(
                         text = vendor.tags.joinToString(separator = " ") { "• $it" },

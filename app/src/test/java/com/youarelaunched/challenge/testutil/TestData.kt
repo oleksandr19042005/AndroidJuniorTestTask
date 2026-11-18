@@ -73,7 +73,6 @@ object TestData {
     )
 }
 
-/** Fake [ApiVendors] that returns a fixed list and counts how often it is hit. */
 class FakeApiVendors(
     private val vendors: List<NetworkVendor> = TestData.networkVendors
 ) : ApiVendors {
@@ -87,7 +86,6 @@ class FakeApiVendors(
     }
 }
 
-/** Fake [ApiVendors] that always fails, to exercise the error path. */
 class FailingApiVendors : ApiVendors {
     override suspend fun getVendors(): List<NetworkVendor> =
         throw RuntimeException("network error")
