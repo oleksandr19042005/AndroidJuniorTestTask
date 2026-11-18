@@ -8,7 +8,7 @@ class VendorRepository(
     private val apiVendors: ApiVendors
 ) {
 
-    // Cache the parsed list so search doesn't re-read and re-parse the asset on every keystroke.
+    // Cache the parsed list so it is read and mapped only once.
     private var cachedVendors: List<Vendor>? = null
 
     suspend fun getVendors(): List<Vendor> {
@@ -17,15 +17,18 @@ class VendorRepository(
             .also { cachedVendors = it }
     }
 
-    suspend fun searchVendors(query: String): List<Vendor> {
-        val allVendors = getVendors()
-        if (query.isBlank()) return allVendors
+    /**
+     * Pure, synchronous filter over an already-loaded list — kept here so the
+     * search rule lives in one place and is trivial to unit-test.
+     */
+    fun filter(vendors: List<Vendor>, query: String): List<Vendor> {
+        if (query.isBlank()) return vendors
 
-        val lowerQuery = query.lowercase()
-        return allVendors.filter { vendor ->
-            vendor.companyName.lowercase().contains(lowerQuery) ||
-                    vendor.categories.any { it.name.lowercase().contains(lowerQuery) } ||
-                    vendor.tags.any { it.lowercase().contains(lowerQuery) }
+        val normalizedQuery = query.trim().lowercase()
+        return vendors.filter { vendor ->
+            vendor.companyName.lowercase().contains(normalizedQuery) ||
+                vendor.categories.any { it.name.lowercase().contains(normalizedQuery) } ||
+                vendor.tags.any { it.lowercase().contains(normalizedQuery) }
         }
     }
 }
