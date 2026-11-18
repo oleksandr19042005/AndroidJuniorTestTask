@@ -1,4 +1,4 @@
-package com.youarelaunched.challenge.middle.mapper
+package com.youarelaunched.challenge.data.mapper
 
 import com.youarelaunched.challenge.network.models.NetworkCategory
 import com.youarelaunched.challenge.network.models.NetworkTag

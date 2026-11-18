@@ -1,6 +1,6 @@
 package com.youarelaunched.challenge.ui.screen.viewmodel
 
-import com.youarelaunched.challenge.middle.repository.VendorRepository
+import com.youarelaunched.challenge.data.repository.VendorRepository
 import com.youarelaunched.challenge.testutil.FailingApiVendors
 import com.youarelaunched.challenge.testutil.FakeApiVendors
 import com.youarelaunched.challenge.testutil.MainDispatcherRule

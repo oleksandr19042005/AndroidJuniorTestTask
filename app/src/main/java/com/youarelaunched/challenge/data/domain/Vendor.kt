@@ -1,4 +1,4 @@
-package com.youarelaunched.challenge.middle.domain
+package com.youarelaunched.challenge.data.domain
 
 data class Vendor(
     val id: Int,

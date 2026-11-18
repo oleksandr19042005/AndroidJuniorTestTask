@@ -15,11 +15,11 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -29,12 +29,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
 import com.youarelaunched.challenge.R
-import com.youarelaunched.challenge.middle.domain.Category
-import com.youarelaunched.challenge.middle.domain.Vendor
+import com.youarelaunched.challenge.data.domain.Category
+import com.youarelaunched.challenge.data.domain.Vendor
 import com.youarelaunched.challenge.ui.theme.SaveActionColor
 import com.youarelaunched.challenge.ui.theme.VendorAppTheme
 import com.youarelaunched.challenge.ui.theme.VendorCardBackground
@@ -50,9 +51,9 @@ fun VendorCard(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
         backgroundColor = VendorCardBackground,
-        elevation = 2.dp
+        elevation = 1.dp
     ) {
-        Column {
+        Column(modifier = Modifier.padding(12.dp)) {
             Box {
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
@@ -63,37 +64,36 @@ fun VendorCard(
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(180.dp)
+                        .height(160.dp)
+                        .clip(RoundedCornerShape(12.dp))
                 )
 
                 SaveBadge(
                     isSaved = vendor.isFavorite,
                     modifier = Modifier
                         .align(Alignment.TopEnd)
-                        .padding(10.dp)
+                        .padding(8.dp)
                 )
 
                 Box(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
                         .padding(8.dp)
-                        .background(color = Color.White, shape = RoundedCornerShape(16.dp))
-                        .padding(horizontal = 10.dp, vertical = 5.dp)
+                        .background(color = Color.White, shape = RoundedCornerShape(percent = 50))
+                        .padding(horizontal = 12.dp, vertical = 5.dp)
                 ) {
                     Text(
                         text = vendor.areaServed,
-                        style = MaterialTheme.typography.body2,
+                        fontSize = 13.sp,
                         color = VendorTitleColor
                     )
                 }
             }
 
-            Column(
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
-            ) {
+            Column(modifier = Modifier.padding(top = 12.dp)) {
                 Text(
                     text = vendor.companyName,
-                    style = MaterialTheme.typography.h6,
+                    fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
                     color = VendorTitleColor,
                     maxLines = 1,
@@ -102,8 +102,8 @@ fun VendorCard(
 
                 if (vendor.categories.isNotEmpty()) {
                     Column(
-                        modifier = Modifier.padding(top = 8.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                        modifier = Modifier.padding(top = 10.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         vendor.categories.chunked(2).forEach { rowCategories ->
                             Row(
@@ -128,9 +128,9 @@ fun VendorCard(
                 if (vendor.tags.isNotEmpty()) {
                     Text(
                         text = vendor.tags.joinToString(separator = " ") { "• $it" },
-                        style = MaterialTheme.typography.caption,
+                        fontSize = 13.sp,
                         color = VendorSubtitleColor,
-                        modifier = Modifier.padding(top = 8.dp),
+                        modifier = Modifier.padding(top = 10.dp),
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis
                     )
@@ -164,7 +164,7 @@ private fun SaveBadge(
             painter = painterResource(id = icon),
             contentDescription = contentDescription,
             tint = iconTint,
-            modifier = Modifier.size(20.dp)
+            modifier = Modifier.size(18.dp)
         )
     }
 }
@@ -188,10 +188,10 @@ private fun CategoryItem(
             contentDescription = name,
             modifier = Modifier.size(20.dp)
         )
-        Spacer(modifier = Modifier.width(4.dp))
+        Spacer(modifier = Modifier.width(6.dp))
         Text(
             text = name,
-            style = MaterialTheme.typography.body2,
+            fontSize = 14.sp,
             color = VendorTitleColor,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis

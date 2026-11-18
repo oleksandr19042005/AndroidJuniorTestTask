@@ -1,7 +1,7 @@
-package com.youarelaunched.challenge.middle.mapper
+package com.youarelaunched.challenge.data.mapper
 
-import com.youarelaunched.challenge.middle.domain.Category
-import com.youarelaunched.challenge.middle.domain.Vendor
+import com.youarelaunched.challenge.data.domain.Category
+import com.youarelaunched.challenge.data.domain.Vendor
 import com.youarelaunched.challenge.network.models.NetworkVendor
 
 fun NetworkVendor.toDomain(): Vendor = Vendor(

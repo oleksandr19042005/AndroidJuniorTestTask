@@ -1,7 +1,7 @@
 package com.youarelaunched.challenge.testutil
 
-import com.youarelaunched.challenge.middle.domain.Category
-import com.youarelaunched.challenge.middle.domain.Vendor
+import com.youarelaunched.challenge.data.domain.Category
+import com.youarelaunched.challenge.data.domain.Vendor
 import com.youarelaunched.challenge.network.api.ApiVendors
 import com.youarelaunched.challenge.network.models.NetworkCategory
 import com.youarelaunched.challenge.network.models.NetworkMediaAttachment

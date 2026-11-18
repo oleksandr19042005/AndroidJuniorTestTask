@@ -1,7 +1,7 @@
-package com.youarelaunched.challenge.middle.repository
+package com.youarelaunched.challenge.data.repository
 
-import com.youarelaunched.challenge.middle.domain.Vendor
-import com.youarelaunched.challenge.middle.mapper.toDomain
+import com.youarelaunched.challenge.data.domain.Vendor
+import com.youarelaunched.challenge.data.mapper.toDomain
 import com.youarelaunched.challenge.network.api.ApiVendors
 
 class VendorRepository(
