@@ -3,6 +3,8 @@
     <string name="vendors_title">Vendors</string>
     <string name="search_hint">Search…</string>
     <string name="no_vendors_found">No vendors found</string>
+    <string name="error_loading_vendors">Something went wrong</string>
+    <string name="retry">Retry</string>
     <string name="cd_save_vendor">Save vendor</string>
     <string name="cd_saved_vendor">Saved vendor</string>
 </resources>

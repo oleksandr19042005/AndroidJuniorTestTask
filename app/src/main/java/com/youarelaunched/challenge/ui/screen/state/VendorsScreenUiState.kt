@@ -2,9 +2,17 @@ package com.youarelaunched.challenge.ui.screen.state
 
 import com.youarelaunched.challenge.middle.domain.Vendor
 
-data class VendorsScreenUiState(
-    val vendors: List<Vendor> = emptyList(),
-    val searchQuery: String = "",
-    val isLoading: Boolean = false,
-    val hasNoResults: Boolean = false
-)
+/**
+ * Exhaustive set of states the vendors screen can be in. Modeling them as a
+ * sealed interface makes illegal combinations (e.g. loading + empty) impossible.
+ */
+sealed interface VendorsScreenUiState {
+
+    object Loading : VendorsScreenUiState
+
+    data class Content(val vendors: List<Vendor>) : VendorsScreenUiState
+
+    object Empty : VendorsScreenUiState
+
+    object Error : VendorsScreenUiState
+}
