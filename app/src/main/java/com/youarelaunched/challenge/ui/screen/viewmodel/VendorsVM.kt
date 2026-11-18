@@ -31,9 +31,6 @@ class VendorsVM(
         loadVendors()
     }
 
-    /**
-     * Screen state derived from the loaded data and the debounced search query.
-     */
     val uiState: StateFlow<VendorsScreenUiState> = combine(
         loadResult,
         query.debounce { typed -> if (typed.isEmpty()) 0L else MainScreenDefaults.SEARCH_DEBOUNCE_MS }

@@ -44,9 +44,9 @@ class VendorRepositoryTest {
         val repository = VendorRepository(FakeApiVendors())
         val vendors = TestData.domainVendors
 
-        assertEquals(1, repository.filter(vendors, "florist").size) // by name + category
-        assertEquals(1, repository.filter(vendors, "coffee").size)  // by category
-        assertEquals(1, repository.filter(vendors, "bmx").size)     // by tag
+        assertEquals(1, repository.filter(vendors, "florist").size)
+        assertEquals(1, repository.filter(vendors, "coffee").size)
+        assertEquals(1, repository.filter(vendors, "bmx").size)
         assertTrue(repository.filter(vendors, "no-match").isEmpty())
     }
 }

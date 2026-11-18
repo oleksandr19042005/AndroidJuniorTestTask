@@ -24,5 +24,4 @@ val OpenSans = FontFamily(
     Font(googleFont = fontName, fontProvider = provider, weight = FontWeight.Bold)
 )
 
-// Applies Open Sans across every Material text style used in the app.
 val VendorTypography = Typography(defaultFontFamily = OpenSans)

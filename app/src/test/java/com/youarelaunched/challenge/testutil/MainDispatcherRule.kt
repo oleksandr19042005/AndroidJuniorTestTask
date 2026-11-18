@@ -9,10 +9,6 @@ import kotlinx.coroutines.test.setMain
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 
-/**
- * Swaps Dispatchers.Main for a test dispatcher around each test, so code using
- * viewModelScope can be driven by the test scheduler.
- */
 @OptIn(ExperimentalCoroutinesApi::class)
 class MainDispatcherRule(
     val dispatcher: TestDispatcher = UnconfinedTestDispatcher()
