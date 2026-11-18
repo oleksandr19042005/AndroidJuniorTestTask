@@ -33,8 +33,8 @@ import coil.compose.AsyncImage
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
 import com.youarelaunched.challenge.R
-import com.youarelaunched.challenge.middle.domain.Category
-import com.youarelaunched.challenge.middle.domain.Vendor
+import com.youarelaunched.challenge.data.domain.Category
+import com.youarelaunched.challenge.data.domain.Vendor
 import com.youarelaunched.challenge.ui.theme.SaveActionColor
 import com.youarelaunched.challenge.ui.theme.VendorAppTheme
 import com.youarelaunched.challenge.ui.theme.VendorCardBackground

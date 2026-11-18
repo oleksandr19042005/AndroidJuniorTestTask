@@ -2,8 +2,8 @@ package com.youarelaunched.challenge.ui.screen.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.youarelaunched.challenge.middle.domain.Vendor
-import com.youarelaunched.challenge.middle.repository.VendorRepository
+import com.youarelaunched.challenge.data.domain.Vendor
+import com.youarelaunched.challenge.data.repository.VendorRepository
 import com.youarelaunched.challenge.ui.screen.MainScreenDefaults
 import com.youarelaunched.challenge.ui.screen.state.VendorsScreenUiState
 import kotlinx.coroutines.ExperimentalCoroutinesApi

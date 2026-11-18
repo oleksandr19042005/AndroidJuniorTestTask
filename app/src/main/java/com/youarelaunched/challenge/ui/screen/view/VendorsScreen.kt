@@ -26,8 +26,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.youarelaunched.challenge.R
-import com.youarelaunched.challenge.middle.domain.Category
-import com.youarelaunched.challenge.middle.domain.Vendor
+import com.youarelaunched.challenge.data.domain.Category
+import com.youarelaunched.challenge.data.domain.Vendor
 import com.youarelaunched.challenge.ui.screen.state.VendorsScreenUiState
 import com.youarelaunched.challenge.ui.screen.view.components.SearchBar
 import com.youarelaunched.challenge.ui.screen.view.components.VendorCard

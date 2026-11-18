@@ -1,7 +1,7 @@
 package com.youarelaunched.challenge.di
 
 import android.content.Context
-import com.youarelaunched.challenge.middle.repository.VendorRepository
+import com.youarelaunched.challenge.data.repository.VendorRepository
 import com.youarelaunched.challenge.network.api.ApiVendors
 import com.youarelaunched.challenge.network.api.NetworkDataProvider
 import kotlinx.coroutines.Dispatchers

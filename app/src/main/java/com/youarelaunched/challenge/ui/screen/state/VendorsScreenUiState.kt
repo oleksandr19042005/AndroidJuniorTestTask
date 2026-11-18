@@ -1,6 +1,6 @@
 package com.youarelaunched.challenge.ui.screen.state
 
-import com.youarelaunched.challenge.middle.domain.Vendor
+import com.youarelaunched.challenge.data.domain.Vendor
 
 sealed interface VendorsScreenUiState {
 

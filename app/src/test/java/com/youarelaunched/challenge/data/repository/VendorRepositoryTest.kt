@@ -1,4 +1,4 @@
-package com.youarelaunched.challenge.middle.repository
+package com.youarelaunched.challenge.data.repository
 
 import com.youarelaunched.challenge.testutil.FakeApiVendors
 import com.youarelaunched.challenge.testutil.TestData
