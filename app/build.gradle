@@ -63,7 +63,15 @@ dependencies {
     implementation compose.foundation
     implementation compose.foundationLayout
     implementation compose.uiToolingPreview
-
+    implementation compose.googleFonts
     implementation retrofit.jsonConverter
 
+    // Coil for image loading (SVG + PNG)
+    implementation coil.compose
+    implementation coil.svg
+
+    // Lifecycle ViewModel Compose
+    implementation lifecycle.viewModelCompose
+    implementation lifecycle.runtimeCompose
+    // Internet permission is needed for loading images from URLs
 }
