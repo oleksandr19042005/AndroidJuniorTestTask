@@ -47,7 +47,6 @@ buildscript {
                 coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
         ]
 
-        //Hilt dependency injection (map name avoids the Hilt plugin's own `hilt` extension)
         hiltVersion = "2.52"
         hiltDeps = [
                 android : "com.google.dagger:hilt-android:$hiltVersion",

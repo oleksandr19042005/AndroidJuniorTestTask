@@ -72,7 +72,6 @@ dependencies {
     implementation lifecycle.viewModelCompose
     implementation lifecycle.runtimeCompose
 
-    // Hilt dependency injection (KSP processor)
     implementation hiltDeps.android
     ksp hiltDeps.compiler
 
