@@ -53,18 +53,6 @@ frame shows only these two visual states — no tap interaction and no "Saved" s
 bookmark is intentionally kept **display-only**, to stay faithful to the design and the task
 scope rather than add unspecified behaviour.
 
-### Possible improvements (closest-to-scope → nice-to-have)
-
-1. Make the bookmark **tappable** to toggle the saved state (local state in the ViewModel).
-2. **Persist** saved vendors (DataStore / Room) so the state survives app restarts.
-3. A **"Saved" filter / tab** to show only saved vendors.
-4. Replace the mocked asset with a real **network layer** (Retrofit) behind the existing
-   `ApiVendors` interface.
-5. Loading UX — skeleton / shimmer placeholders and pull-to-refresh instead of a spinner.
-6. A vendor **detail screen** via Navigation-Compose.
-7. Migrate to **Material 3** + a dark theme.
-8. More tests (Compose UI tests) and **CI** (ktlint / detekt + unit tests on each push).
-
 ### Tech note
 
 The toolchain was modernised from the original scaffold — **AGP 8.13, Gradle 8.13, Kotlin 2.0
