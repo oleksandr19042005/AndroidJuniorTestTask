@@ -1,18 +1,17 @@
 buildscript {
     ext {
         gradleDependencies = [
-                compileSdk: 33,
-                targetSdk : 33,
+                compileSdk: 34,
+                targetSdk : 34,
                 minSdk    : 26
         ]
 
-        kotlinVersion = "1.8.10"
+        kotlinVersion = "2.0.21"
 
-        composeUiVersion = "1.4.3"
-        conposeCompillerVersion = "1.4.3"
+        composeUiVersion = "1.6.8"
         compose = [
                 //Compose activity RN https://developer.android.com/jetpack/androidx/releases/activity#version_160_3
-                activity        : "androidx.activity:activity-compose:1.6.0",
+                activity        : "androidx.activity:activity-compose:1.9.3",
                 //Compose UI RN https://developer.android.com/jetpack/compose/setup
                 ui              : "androidx.compose.ui:ui:$composeUiVersion",
                 material        : "androidx.compose.material:material:$composeUiVersion",
@@ -36,13 +35,13 @@ buildscript {
                 svg    : "io.coil-kt:coil-svg:$coilVersion"
         ]
 
-        lifecycleVersion = "2.6.1"
+        lifecycleVersion = "2.8.7"
         lifecycle = [
                 viewModelCompose: "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion",
                 runtimeCompose  : "androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion"
         ]
 
-        coroutinesVersion = "1.6.4"
+        coroutinesVersion = "1.8.1"
         testLibs = [
                 junit         : "junit:junit:4.13.2",
                 coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
@@ -51,7 +50,8 @@ buildscript {
 }
 
 plugins {
-    id 'com.android.application' version '7.3.1' apply false
-    id 'com.android.library' version '7.3.1' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
+    id 'com.android.application' version '8.13.2' apply false
+    id 'com.android.library' version '8.13.2' apply false
+    id 'org.jetbrains.kotlin.android' version '2.0.21' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.21' apply false
 }
