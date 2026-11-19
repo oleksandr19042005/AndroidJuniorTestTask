@@ -46,6 +46,13 @@ buildscript {
                 junit         : "junit:junit:4.13.2",
                 coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
         ]
+
+        //Hilt dependency injection (map name avoids the Hilt plugin's own `hilt` extension)
+        hiltVersion = "2.52"
+        hiltDeps = [
+                android : "com.google.dagger:hilt-android:$hiltVersion",
+                compiler: "com.google.dagger:hilt-compiler:$hiltVersion"
+        ]
     }
 }
 
@@ -54,4 +61,6 @@ plugins {
     id 'com.android.library' version '8.13.2' apply false
     id 'org.jetbrains.kotlin.android' version '2.0.21' apply false
     id 'org.jetbrains.kotlin.plugin.compose' version '2.0.21' apply false
+    id 'com.google.devtools.ksp' version '2.0.21-1.0.28' apply false
+    id 'com.google.dagger.hilt.android' version '2.52' apply false
 }

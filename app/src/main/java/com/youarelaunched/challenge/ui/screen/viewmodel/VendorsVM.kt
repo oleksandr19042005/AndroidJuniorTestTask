@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.youarelaunched.challenge.data.domain.Vendor
 import com.youarelaunched.challenge.data.repository.VendorRepository
 import com.youarelaunched.challenge.ui.screen.MainScreenDefaults
+import dagger.hilt.android.lifecycle.HiltViewModel
 import com.youarelaunched.challenge.ui.screen.state.VendorsScreenUiState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -16,9 +17,11 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
-class VendorsVM(
+@HiltViewModel
+class VendorsVM @Inject constructor(
     private val repository: VendorRepository
 ) : ViewModel() {
 
