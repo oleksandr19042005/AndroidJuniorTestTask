@@ -39,8 +39,9 @@ Notes:
   flow, so no coroutine is launched per keystroke.
 - **Images** — Coil `AsyncImage` (PNG/JPEG covers + SVG category icons). They are loaded from a
   remote staging CDN, so **internet is required** (`INTERNET` permission).
-- **DI** — a small manual `AppContainer` (composition root in `VendorApp`); the ViewModel is
-  obtained via `viewModels { … }`.
+- **DI** — Hilt, processed with **KSP**: `@HiltAndroidApp`, `@AndroidEntryPoint`, `@HiltViewModel`,
+  and an `AppModule` providing `ApiVendors` (IO dispatcher) and `VendorRepository`. The ViewModel
+  is obtained via `by viewModels()`.
 - **Tests** — unit tests for the mapper, the repository (caching + filtering) and the
   ViewModel's state emissions.
 
@@ -66,7 +67,8 @@ scope rather than add unspecified behaviour.
 
 ### Tech note
 
-Dependency injection uses a manual container rather than Hilt because the project's toolchain
-(AGP 7.3.1 + the bundled R8) cannot dex Hilt's instrumented output under JDK 21. Hilt becomes a
-drop-in replacement once the AGP / JDK are modernised.
+The toolchain was modernised from the original scaffold — **AGP 8.13, Gradle 8.13, Kotlin 2.0
+with the Compose Compiler Gradle plugin, Compose 1.6.8, compileSdk 34 and JVM target 17**. That
+also unblocked **Hilt**: the original AGP 7.3.1 + bundled R8 could not dex Hilt's instrumented
+output under JDK 21, whereas AGP 8's newer R8 handles it cleanly.
   
